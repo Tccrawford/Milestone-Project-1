@@ -1,10 +1,10 @@
 # Milestone-Project-1
 
 Milestone Project P1:
-Create a webpage with a functioning script attached to the clicker object.
+Create character with a working jump button.
 
 Milestone Project P2:
-Create counter and shop with click multipliers.
+Create moving scene from left to right with obstacles that give you points as you past them.
 
 Milestone Project P3:
-Create a passive clicker that adds points overtime.
+Create at least 10 different levels and a shop with character customization.
