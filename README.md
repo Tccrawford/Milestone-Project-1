@@ -7,7 +7,7 @@ Milestone Project P2:
 Create moving scene from left to right with obstacles that give you points as you past them.
 
 Milestone Project P3:
-Create at least 2 different levels and a shop with character customization.
+Create at least 2 different levels/auto generated objects and a shop with character customization.
 
 Checklist:
 Player Creation X

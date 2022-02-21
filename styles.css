@@ -1,15 +1,15 @@
-.game-background{
-    animation: slide 60s linear infinite;
+html{
+    background-color: blue;
 }
-@keyframes slide{
-    0%{
-        transform: translate3d(0, 0, 0);
-    }
-    100%{
-        transform: translate3d(-1692px, 0, 0);
-    }
+nav{
+    display: block;
+    position: sticky;
+    background-color: aqua;
 }
-.wrapper {
-    overflow: hidden;
+#myCanvas{
+ color:aquamarine
 }
 
+body{
+    margin: 0;
+}
