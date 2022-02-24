@@ -9,17 +9,14 @@ let gravity = 0.5
 class Character {
     constructor(config){
         this.position = {
-            x: 100,
-            y:100,
+            x: 0,
+            y: 610,
         }
         this.velocity= {
-            x: 0,
-            y: 1,
+            x: 3,
+            y: 0.5,
         }
-        this.speed={
-            x: 2,
-            y: 0,
-        }
+       
         this.width= 25
         this.height= 25
         this.canvasConfig = config
@@ -30,7 +27,7 @@ look(){
     this.canvasConfig.fillRect(this.position.x, this.position.y, this.width, this.height)
     
     }
-// The update function should be running over and over again. This'll give the velocity, speed and recreate the rectangle in a new position constantly.
+// The update function should be running over and over again. This'll give the velocity, velocity and recreate the rectangle in a new position constantly.
 update(){
     this.look()
     this.position.y += this.velocity.y
@@ -39,10 +36,15 @@ update(){
     } else{
         this.velocity.y = 0    
     }
-    if(this.position.x + this.speed.x + this.width <= canvas.width){
-        this.position.x += this.speed.x
-    } else{
-        this.speed.x = 0
+    if (this.position.x + this.velocity.x + this.width <= canvas.width){
+        this.position.x += this.velocity.x
+    } else if (this.position.x + this.velocity.x + this.width >= canvas.width){
+        this.velocity.x = -this.velocity.x
+    } 
+    if (this.position.x <= 0){
+        let { velocity } = this
+        velocity.x = 3
+        
     }
 
 }
@@ -58,11 +60,17 @@ function animate(){
     character.update()
 }
 animate()
+const jumpButton = {
+    pressed: false
+}
+document.body.onkeypress = function(event) {
+    if (event.keyCode === 32, jumpButton.pressed = false){
+        character.position.y -= 80
+        jumpButton.pressed = true
+    } 
 
-window.addEventListener('keydown', () => {
-    if (character.position.y = canvas.height){
-        character.position.y += -100
-    } else {
+}
+document.getElementById("jumpButton").addEventListener('click', () => {
+        character.position.y -= 50 
         
-    }
 })
