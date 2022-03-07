@@ -43,7 +43,7 @@ update(){
     } 
     if (this.position.x <= 0){
         let { velocity } = this
-        velocity.x = 5
+        velocity.x = 10
         
     }
 
@@ -97,7 +97,7 @@ class Platforms{
             x: Math.floor(Math.random() * canvas.width),
             y: 820
         }
-        this.width = 500
+        this.width = 250
         this.height = 5
         
     }
@@ -114,6 +114,8 @@ const platform2 = new Platforms()
 const platform3 = new Platforms()
 const platform4 = new Platforms()
 const platform5 = new Platforms()
+const platformPositions = [0, 196, 392, 588, 784, Math.floor(Math.random() * canvas.width - 250)]
+const platforms = [platform, platform2, platform3, platform4, platform5]
 
 //The animate function is key to looping the update function indefinitely.
 function animateCharacter(){
@@ -159,34 +161,35 @@ function animateCharacter(){
                 character.velocity.y = 0
                                         }
 
-        platform.position.y += 0.6
-        platform2.position.y += 0.6
-        platform3.position.y += 0.6
-        platform4.position.y += 0.6
-        platform5.position.y += 0.6
+        platform.position.y += 2
+        platform2.position.y += 2
+        platform3.position.y += 2
+        platform4.position.y += 2
+        platform5.position.y += 2
 
-   if (platform.position.y >= 820){
+   if (platform.position.y >= canvas.height){
        platform.position.y = 500
-       platform.position.x = Math.floor(Math.random() * canvas.width - 500)
+       platform.position.x = platformPositions[Math.floor(Math.random() * platformPositions.length)]
    }
 
-   if (platform2.position.y >= 820){
+   if (platform2.position.y >= canvas.height){
     platform2.position.y = 450
-    platform2.position.x = Math.floor(Math.random() * canvas.width - 500)
+    platform2.position.x = platformPositions[Math.floor(Math.random() * platformPositions.length)]
    }
 
     if (platform3.position.y >= canvas.height){
         platform3.position.y = 475
-        platform3.position.x = Math.floor(Math.random() * canvas.width - 500)
+        platform3.position.x = platformPositions[Math.floor(Math.random() * platformPositions.length)]
 }
-    if (platform4.position.y >= 820){
+    if (platform4.position.y >= canvas.height){
     platform4.position.y = 425
-    platform4.position.x = Math.floor(Math.random() * canvas.width - 500)
+    platform4.position.x = platformPositions[Math.floor(Math.random() * platformPositions.length)]
 }
-    if (platform5.position.y >= 820){
+    if (platform5.position.y >= canvas.height){
     platform5.position.y = 400
-    platform5.position.x = Math.floor(Math.random() * canvas.width - 500)
+    platform5.position.x = platformPositions[Math.floor(Math.random() * platformPositions.length)]
 }
+   
 }
 
 animateCharacter()
@@ -205,5 +208,5 @@ document.getElementById("jumpButton").addEventListener('click', () => {
     character.position.y -= 100
     }     
 })
- 
+
 // Pretty sure i took on more than i could do, I will continue to work on this because i really want to see a fully finished product.  
